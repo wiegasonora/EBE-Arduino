@@ -39,9 +39,17 @@
 
 // include the library code:
 #include <LiquidCrystal.h>
+int potentiometerPin = 0; 
+//int potentiometerPin = A2; 
 
 // initialize the library with the numbers of the interface pins
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+//function to calculate potentiometer value
+int potentiometerValue() {
+	int val = analogRead(potentiometerPin);
+	return val;
+}    
 
 void setup() {
   // set up the LCD's number of columns and rows:
@@ -53,6 +61,14 @@ void setup() {
 void loop() {
   // set the cursor to column 0, line 1
   // (note: line 1 is the second row, since counting begins with 0):
+
+  //int potValue = potentiometerValue();
+  //int fadeValue = map(potValue, 0, 1023, 0, 255);   // sets the value (range from 0 to 255):
+
+  //analogWrite(ledPin, fadeValue);
+  //wait for 30 milliseconds to see the dimming effect    
+  //delay(30);                        
+
   lcd.setCursor(0, 1);
   // print the number of seconds since reset:
   lcd.print("Arduino");
